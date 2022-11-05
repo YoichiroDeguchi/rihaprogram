@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
+
+/* base */
+html {
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4f4f4;
+    height: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+a:link {
+    color: #333;
+    text-decoration: none;
+}
+
+/* 中央寄せ */
+.start_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.test_wrapper,
+.answer_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ↑なぜか上下中央に寄らない;_; */
+
+h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0 50px 0;
+}
+
+/* -----------------
+    質問ボタン
+-----------------*/
+/*ボタンデザイン引用サイト↓
+https: //saruwakakun.com/html-css/reference/buttons
+https: //pa-tu.work/category/6
+*/
+
+.testbox_wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+}
+
+.test_btn,
+.test_btn_end {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-left: solid 4px #668ad8;
+    border-right: solid 4px #668ad8;
+    color: #668ad8;
+    background: #e1f3ff;
+    transition: .4s;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+.test_btn:hover {
+    background: #668ad8;
+    color: #FFF;
+}
+
+.test_btn_end:hover {
+    background: #668ad8;
+    color: #FFF;
+}
+
+
+
+.pic-container {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: rgb(254, 254, 254);
+    z-index: 0;
+}
+
+.test_btn_start {
+    position: relative;
+    cursor: pointer;
+    padding: 2rem 3rem;
+    border-radius: 50px;
+    background-color: #668ad8;
+    transition: .3s;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 0 0 0 #668ad8;
+    transition: .8s;
+}
+
+.test_btn_start:hover {
+    box-shadow: 0 0 0 10px #668ad8;
+    animation: fluidshape 10s ease .1s infinite;
+}
+
+@keyframes fluidshape {
+    0% {
+        border-radius: 61% 35% 52% 44%/53% 46% 50% 43%;
+    }
+
+    15% {
+        border-radius: 38% 58% 52% 44%/47% 58% 38% 49%;
+    }
+
+    30% {
+        border-radius: 52% 44% 36% 60%/47% 68% 28% 49%;
+    }
+
+    45% {
+        border-radius: 59% 37% 53% 43%/59% 36% 60% 37%;
+    }
+
+    60% {
+        border-radius: 59% 37% 65% 31%/68% 48% 48% 28%;
+    }
+
+    75% {
+        border-radius: 48% 48% 32% 64%/54% 66% 30% 42%;
+    }
+
+    90% {
+        border-radius: 44% 52% 48% 48%/33% 59% 37% 63%;
+    }
+
+    100% {
+        border-radius: 61% 35% 52% 44%/53% 46% 50% 43%;
+    }
+}
+
+/* -----------------
+    回答
+-----------------*/
+/*（引用） https: //saruwakakun.com/html-css/reference/box */
+
+/* 目標の囲い */
+.answer_goal {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: #cde4ff;
+    /*背景色*/
+    border-radius: 10px;
+    /*角の丸み*/
+}
+
+.answer_goal p {
+    margin: 0;
+    padding: 0;
+}
+
+/* 訓練プログラムの囲い */
+.answer_program {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    /*文字色*/
+    background: #FFF;
+    border: solid 3px #668ad8;
+    /*線*/
+    border-radius: 10px;
+    /*角の丸み*/
+}
+
+.answer_program p {
+    margin: 0;
+    padding: 0;
+}
