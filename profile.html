@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+
+    <title>リハビリメニュー自動作成</title>
+</head>
+
+<body>
+    <h1>プロフィールシート</h1>
+
+    <div class="profile_box">
+        <div class="profile_box_img">
+            <img src="img/profile_icon.png" alt="#">
+        </div>
+        <div class="profile_box_text">
+            <div class="profile_box_text_profile">
+                <p>【基本情報】</p>
+                <p>　氏名：<span id="localname"></span> 様</p>
+                <p>　性別：<span id="localgender"></span></p>
+                <p>　年齢：<span id="localage"></span></p>
+                <p>　介護度：<span id="localdegree"></span></p>
+                <p>　主病名：<span id="localdisease"></span></p>
+                <p>　好きな食べ物：<span id="localdetail"></span></p>
+            </div>
+            <div class="profile_box_text_rihamenu">
+                <p>【リハビリメニュー】</p>
+                <div class="profile_box_text_rihamenu_detail">
+                    <p><span id="localRihaMenu2"></p>
+                    <p><span id="localRihaMenu3"></p>
+                    <p><span id="localRihaMenu4"></p>
+                    <p><span id="localRihaMenu5"></p>
+                    <p><span id="localRihaMenu6"></p>
+                    <p><span id="localRihaMenu7"></p>
+                    <p><span id="localRihaMenu8"></p>
+                    <p><span id="localRihaMenu9"></p>
+                    <p><span id="localRihaMenu10"></p>
+                    <p><span id="localRihaMenu11"></p>
+                    <p><span id="localRihaMenu12"></p>
+                    <p><span id="localRihaMenu13"></p>
+                    <p><span id="localRihaMenu14"></p>
+                    <p><span id="localRihaMenu15"></p>
+                    <p><span id="localRihaMenu16"></p>
+                    <p><span id="localRihaMenu17"></p>
+                    <p><span id="localRihaMenu18"></p>
+                    <p><span id="localRihaMenu19"></p>
+                    <p><span id="localRihaMenu20"></p>
+                    <p><span id="localRihaMenu21"></p>
+                    <p><span id="localRihaMenu22"></p>
+                    <p><span id="localRihaMenu23"></p>
+                    <p><span id="localRihaMenu24"></p>
+                    <p><span id="localRihaMenu25"></p>
+                    <p><span id="localRihaMenu26"></p>
+                    <p><span id="localRihaMenu27"></p>
+                    <p><span id="localRihaMenu28"></p>
+                    <p><span id="localRihaMenu29"></p>
+                    <p><span id="localRihaMenu30"></p>
+                    <p><span id="localRihaMenu31"></p>
+                    <p><span id="localRihaMenu32"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn_box_profile">
+        <a href="top.html" class="top_btn">TOPへ戻る</a>
+        <a href="#" class="reset_btn">リセット</a>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+    <script>
+        // ローカルストレージからプロフィールシートにデータを受け取る（基本情報）
+        const localStorageName = JSON.parse((localStorage.getItem("getDataName")));
+        document.getElementById("localname").innerHTML = localStorageName;
+
+        const localStorageGender = JSON.parse((localStorage.getItem("getDataGender")));
+        document.getElementById("localgender").innerHTML = localStorageGender;
+
+        const localStorageAge = JSON.parse((localStorage.getItem("getDataAge")));
+        document.getElementById("localage").innerHTML = localStorageAge;
+
+        const localStorageDegree = JSON.parse((localStorage.getItem("getDataDegree")));
+        document.getElementById("localdegree").innerHTML = localStorageDegree;
+
+        const localStorageDisease = JSON.parse((localStorage.getItem("getDataDisease")));
+        document.getElementById("localdisease").innerHTML = localStorageDisease;
+
+        const localStorageDetail = JSON.parse((localStorage.getItem("getDataDetail")));
+        document.getElementById("localdetail").innerHTML = localStorageDetail;
+
+
+        // ローカルストレージからプロフィールシートにデータを受け取る（リハメニュー）
+        const localStorageRihaMenu2 = JSON.parse((localStorage.getItem("rihaMenu2")));
+        document.getElementById("localRihaMenu2").innerHTML = localStorageRihaMenu2;
+
+        const localStorageRihaMenu3 = JSON.parse((localStorage.getItem("rihaMenu3")));
+        document.getElementById("localRihaMenu3").innerHTML = localStorageRihaMenu3;
+
+        const localStorageRihaMenu4 = JSON.parse((localStorage.getItem("rihaMenu4")));
+        document.getElementById("localRihaMenu4").innerHTML = localStorageRihaMenu4;
+
+        const localStorageRihaMenu5 = JSON.parse((localStorage.getItem("rihaMenu5")));
+        document.getElementById("localRihaMenu5").innerHTML = localStorageRihaMenu5;
+
+        const localStorageRihaMenu6 = JSON.parse((localStorage.getItem("rihaMenu6")));
+        document.getElementById("localRihaMenu6").innerHTML = localStorageRihaMenu6;
+
+        const localStorageRihaMenu7 = JSON.parse((localStorage.getItem("rihaMenu7")));
+        document.getElementById("localRihaMenu7").innerHTML = localStorageRihaMenu7;
+
+        const localStorageRihaMenu8 = JSON.parse((localStorage.getItem("rihaMenu8")));
+        document.getElementById("localRihaMenu8").innerHTML = localStorageRihaMenu8;
+
+        const localStorageRihaMenu9 = JSON.parse((localStorage.getItem("rihaMenu9")));
+        document.getElementById("localRihaMenu9").innerHTML = localStorageRihaMenu9;
+
+        const localStorageRihaMenu10 = JSON.parse((localStorage.getItem("rihaMenu10")));
+        document.getElementById("localRihaMenu10").innerHTML = localStorageRihaMenu10;
+
+        const localStorageRihaMenu11 = JSON.parse((localStorage.getItem("rihaMenu11")));
+        document.getElementById("localRihaMenu11").innerHTML = localStorageRihaMenu11;
+
+        const localStorageRihaMenu12 = JSON.parse((localStorage.getItem("rihaMenu12")));
+        document.getElementById("localRihaMenu12").innerHTML = localStorageRihaMenu12;
+
+        const localStorageRihaMenu13 = JSON.parse((localStorage.getItem("rihaMenu13")));
+        document.getElementById("localRihaMenu13").innerHTML = localStorageRihaMenu13;
+
+        const localStorageRihaMenu14 = JSON.parse((localStorage.getItem("rihaMenu14")));
+        document.getElementById("localRihaMenu14").innerHTML = localStorageRihaMenu14;
+
+        const localStorageRihaMenu15 = JSON.parse((localStorage.getItem("rihaMenu15")));
+        document.getElementById("localRihaMenu15").innerHTML = localStorageRihaMenu15;
+
+        const localStorageRihaMenu16 = JSON.parse((localStorage.getItem("rihaMenu16")));
+        document.getElementById("localRihaMenu16").innerHTML = localStorageRihaMenu16;
+
+        const localStorageRihaMenu17 = JSON.parse((localStorage.getItem("rihaMenu17")));
+        document.getElementById("localRihaMenu17").innerHTML = localStorageRihaMenu17;
+
+        const localStorageRihaMenu18 = JSON.parse((localStorage.getItem("rihaMenu18")));
+        document.getElementById("localRihaMenu18").innerHTML = localStorageRihaMenu18;
+
+        const localStorageRihaMenu19 = JSON.parse((localStorage.getItem("rihaMenu19")));
+        document.getElementById("localRihaMenu19").innerHTML = localStorageRihaMenu19;
+
+        const localStorageRihaMenu20 = JSON.parse((localStorage.getItem("rihaMenu20")));
+        document.getElementById("localRihaMenu20").innerHTML = localStorageRihaMenu20;
+
+        const localStorageRihaMenu21 = JSON.parse((localStorage.getItem("rihaMenu21")));
+        document.getElementById("localRihaMenu21").innerHTML = localStorageRihaMenu21;
+
+        const localStorageRihaMenu22 = JSON.parse((localStorage.getItem("rihaMenu22")));
+        document.getElementById("localRihaMenu22").innerHTML = localStorageRihaMenu22;
+
+        const localStorageRihaMenu23 = JSON.parse((localStorage.getItem("rihaMenu23")));
+        document.getElementById("localRihaMenu23").innerHTML = localStorageRihaMenu23;
+
+        const localStorageRihaMenu24 = JSON.parse((localStorage.getItem("rihaMenu24")));
+        document.getElementById("localRihaMenu24").innerHTML = localStorageRihaMenu24;
+
+        const localStorageRihaMenu25 = JSON.parse((localStorage.getItem("rihaMenu25")));
+        document.getElementById("localRihaMenu25").innerHTML = localStorageRihaMenu25;
+
+        const localStorageRihaMenu26 = JSON.parse((localStorage.getItem("rihaMenu26")));
+        document.getElementById("localRihaMenu26").innerHTML = localStorageRihaMenu26;
+
+        const localStorageRihaMenu27 = JSON.parse((localStorage.getItem("rihaMenu27")));
+        document.getElementById("localRihaMenu27").innerHTML = localStorageRihaMenu27;
+
+        const localStorageRihaMenu28 = JSON.parse((localStorage.getItem("rihaMenu28")));
+        document.getElementById("localRihaMenu28").innerHTML = localStorageRihaMenu28;
+
+        const localStorageRihaMenu29 = JSON.parse((localStorage.getItem("rihaMenu29")));
+        document.getElementById("localRihaMenu29").innerHTML = localStorageRihaMenu29;
+
+        const localStorageRihaMenu30 = JSON.parse((localStorage.getItem("rihaMenu30")));
+        document.getElementById("localRihaMenu30").innerHTML = localStorageRihaMenu30;
+
+        const localStorageRihaMenu31 = JSON.parse((localStorage.getItem("rihaMenu31")));
+        document.getElementById("localRihaMenu31").innerHTML = localStorageRihaMenu31;
+
+        const localStorageRihaMenu32 = JSON.parse((localStorage.getItem("rihaMenu32")));
+        document.getElementById("localRihaMenu32").innerHTML = localStorageRihaMenu32;
+
+        // リセットボタンを押すと保存データ削除
+        $('.reset_btn').click(function () {
+            localStorage.clear();
+            window.location.reload();
+        })
+
+    </script>
+
+</body>
+
+</html>
