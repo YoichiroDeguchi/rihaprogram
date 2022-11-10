@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+
+    <title>リハビリメニュー自動作成</title>
+</head>
+
+<body>
+    <div class="test_wrapper">
+        <!-- 基本情報入力画面 -->
+        <div id="testbox0" class="fit">
+            <div class="testbox_wrapper">
+                <h2>基本情報</h2>
+                <div class="form-wrapper">
+                    <form name="information" action="#" method="post">
+                        <dl class="form-inner">
+                            <dt class="form-title-name">氏名</dt>
+                            <dd class="form-item">
+                                <input type="text" id="name" name="name" value="">
+                            </dd>
+                            <dt class="form-title-gender">性別</dt>
+                            <dd class="form-item">
+                                <label><input type="radio" name="gender" value="男性">男性</label>
+                                <label><input type="radio" name="gender" value="女性">女性</label>
+                            </dd>
+                            <dt class="form-title-age">年齢</dt>
+                            <dd class="form-item">
+                                <input type="text" id="age" name="age">
+                            </dd>
+                            <dt class="form-title-degree">介護度</dt>
+                            <dd class="form-item">
+                                <label><input type="radio" name="degree" value="未認定">未認定</label>
+                                <label><input type="radio" name="degree" value="要支援1">要支援1</label>
+                                <label><input type="radio" name="degree" value="要支援2">要支援2</label>
+                                <label><input type="radio" name="degree" value="要介護1">要介護1</label>
+                                <label><input type="radio" name="degree" value="要介護2">要介護2</label>
+                                <label><input type="radio" id="degree" name="degree" value="要介護3">要介護3</label>
+                                <label><input type="radio" name="degree" value="要介護4">要介護4</label>
+                                <label><input type="radio" name="degree" value="要介護5">要介護5</label>
+                            </dd>
+                            <dt class="form-title-disease">主病名</dt>
+                            <dd class="form-item">
+                                <input type="text" id="disease" name="disease" value="">
+                            </dd>
+                            <dt class="form-title-detail">好きな食べ物</dt>
+                            <dd class="form-item-detail">
+                                <textarea id="detail" name="detail" rows="4" value="detail"></textarea>
+                            </dd>
+                        </dl>
+                    </form>
+                </div>
+                <a href="#testbox1" class="test_btn" id="checkButton">質問へ　▶</a>
+            </div>
+        </div>
+
+        <!-- 質問 -->
+        <div id="testbox1" style="display:none">
+            <h2>以下の質問にお答えください。</h2>
+
+            <div class="testbox_wrapper">
+                <p>【質問1】 食事中、周囲に注意が逸れ手が止まることはありますか？</p>
+                <a href="#testbox2" id="test1" class="test_btn">はい</a>
+                <a href="#testbox2" class="test_btn">いいえ</a>
+                <div class="btn_box top_btn_np">
+                    <a href="top.html" class="top_btn">TOPへ戻る</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="testbox2" style="display:none">
+            <div class="testbox_wrapper">
+                <p>【質問2】 口に入れた食べ物が口の外に落ちることはありますか？</p>
+                <a href="#testbox3" id="test2" class="test_btn">はい</a>
+                <a href="#testbox3" class="test_btn">いいえ</a>
+                <div class="btn_box top_btn_np">
+                    <a href="top.html" class="top_btn">TOPへ戻る</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="testbox3" style="display:none">
+            <div class="testbox_wrapper">
+                <p>【質問3】 食べ物を飲み込んだ後、口の中に食べ物が残りますか？</p>
+                <a href="#testbox4" id="test3" class="test_btn">はい</a>
+                <a href="#testbox4" class="test_btn">いいえ</a>
+                <div class="btn_box top_btn_np">
+                    <a href="top.html" class="top_btn">TOPへ戻る</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="testbox4" style="display:none">
+            <div class="testbox_wrapper">
+                <p>【質問4】 食べ物を飲み込んだ後、ゴロゴロと喉から残留音がしますか？</p>
+                <a href="#testbox5" id="test4" class="test_btn">はい</a>
+                <a href="#testbox5" class="test_btn">いいえ</a>
+                <div class="btn_box top_btn_np">
+                    <a href="top.html" class="top_btn">TOPへ戻る</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="testbox5" style="display:none">
+            <div class="testbox_wrapper">
+                <p>【質問5】 食事中にムセはありますか？</p>
+                <a href="#" id="test5" class="test_btn_end">はい</a>
+                <a href="#" class="test_btn_end">いいえ</a>
+                <div class="btn_box top_btn_np">
+                    <a href="top.html" class="top_btn">TOPへ戻る</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 結果画面 -->
+    <div class="answer_wrapper">
+        <div id="answer_pattern1" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <div class="answer_goal">
+                <p>嚥下機能に問題はありません。<br>
+                    気になる症状がある場合は主治医に相談しましょう！</p>
+            </div>
+            <div class="btn_box top_btn_np">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern2" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn2 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern3" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+            <div class="btn_box">
+                <div class="btn_box">
+                    <a href="top.html" class="top_btn">TOPへ戻る</a>
+                    <a href="profile.html" class="make_menu_btn3 menu_btn_design">シートを作成</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="answer_pattern4" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn4 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern5" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn5 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern6" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn6 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern7" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。<br>
+                    ・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn7 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern8" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn8 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern9" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn9 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern10" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn10 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern11" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn11 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern12" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn12 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern13" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。<br>
+                    ・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn13 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern14" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。<br>
+                    ・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn14 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern15" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn15 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern16" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn16 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern17" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食事中の集中力」に課題が認められたため、「集中力・注意機能の向上」がオススメされています。<br>
+                    ・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。<br>
+                    ・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃集中力、注意機能を向上させるトレーニング</p>
+                <h4>[目的]</h4>
+                <p>集中力、注意機能を向上させ、食事に集中できる時間を延ばします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①簡単な計算問題（1セット10分）<br>
+                    ②間違い探し（1セット10分）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn17 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern18" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn18 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern19" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。<br>
+                    ・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn19 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern20" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn20 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern21" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn21 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern22" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。<br>
+                    ・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn22 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern23" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。<br>
+                    ・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn23 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern24" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn24 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern25" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食べ物の取込み、食べこぼし」に課題が認められたため、「口唇の機能向上」がオススメされています。<br>
+                    ・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃口唇のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>唇の筋力を鍛え、食べこぼしを減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①口唇の交互反復トレーニング（10-15回～×3セット）<br>
+                    ②唇の筋力トレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn25 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern26" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn26 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern27" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn27 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern28" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn28 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern29" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「口腔内の食べ物の食塊形成、喉への移送」に課題が認められたため、「舌や頬の機能向上」がオススメされています。<br>
+                    ・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃口腔内(舌や頬)のトレーニング</p>
+                <h4>[目的]</h4>
+                <p>舌や頬の動き、筋力を鍛え、口腔内の食べ物を上手くまとめる機能の向上を図ります。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①舌の体操（5-10回～×5セット）<br>
+                    ②舌の抵抗訓練（10-15回～×3セット）<br>
+                    ③頬のトレーニング（10-15回～×3セット）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn29 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern30" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn30 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern31" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「飲み込みの力」に課題が認められたため、「喉の筋力向上」がオススメされています。<br>
+                    ・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃喉の筋力トレーニング</p>
+                <h4>[目的]</h4>
+                <p>飲み込みの力を鍛え、嚥下後の喉の残留物を減らします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①嚥下おでこ体操（1セット5回）</p>
+            </div>
+
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn31 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+
+        <div id="answer_pattern32" style="display:none;">
+            <h2>あなたにオススメする目標、訓練プログラム</h2>
+            <h3>課題と目標</h3>
+            <div class="answer_goal">
+                <p>・「食べ物の喉頭侵入」に課題が認められたため、「喀出力の向上」、「喉の感覚向上」がオススメされています。</p>
+            </div>
+
+            <h3>訓練プログラム</h3>
+            <div class="answer_program">
+                <p>＃呼吸機能のトレーニング<br>
+                    ＃喉の感覚トレーニング</p>
+                <h4>[目的]</h4>
+                <p>呼気力を鍛え、喀出力を向上させ誤嚥リスクを減らします。<br>
+                    喉の感覚を向上させ、嚥下反射を惹起しやすくします。</p>
+                <h4>[具体的な手技]</h4>
+                <p>①ブローイング（1セット5回）<br>
+                    ②氷舐め→空嚥下（1セット2回）</p>
+            </div>
+            <div class="btn_box">
+                <a href="top.html" class="top_btn">TOPへ戻る</a>
+                <a href="profile.html" class="make_menu_btn32 menu_btn_design">シートを作成</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+</body>
+
+</html>
