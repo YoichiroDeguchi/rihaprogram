@@ -65,6 +65,52 @@
             </div>
         </div>
     </div>
+
+    <!-- 進捗管理シート -->
+    <div class="container">
+        <h2>進捗管理シート</h2>
+        <p class="table_text">＼リハビリができた日にチェック入れましょう！／</p>
+        <div class="table_wrapper">
+            <table class="table" border=1 align="center">
+                <tr>
+                    <td> 1日 </td>
+                    <td> 2日 </td>
+                    <td> 3日 </td>
+                    <td> 4日 </td>
+                    <td> 5日 </td>
+                    <td> 6日 </td>
+                    <td> 7日 </td>
+                    <td> 8日 </td>
+                    <td> 9日 </td>
+                    <td> 10日 </td>
+                    <td> 11日 </td>
+                    <td> 12日 </td>
+                    <td> 13日 </td>
+                    <td> 14日 </td>
+                    <td> 15日 </td>
+                    <td> 16日 </td>
+                </tr>
+                <tr>
+                    <td> 17日 </td>
+                    <td> 18日 </td>
+                    <td> 19日 </td>
+                    <td> 20日 </td>
+                    <td> 21日 </td>
+                    <td> 22日 </td>
+                    <td> 23日 </td>
+                    <td> 24日 </td>
+                    <td> 25日 </td>
+                    <td> 26日 </td>
+                    <td> 27日 </td>
+                    <td> 28日 </td>
+                    <td> 29日 </td>
+                    <td> 30日 </td>
+                    <td> 31日 </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
     <div class="btn_box_profile">
         <a href="index.html" class="top_btn">TOPへ戻る</a>
         <a href="#" class="reset_btn">リセット</a>
@@ -190,11 +236,21 @@
         const localStorageRihaMenu32 = JSON.parse((localStorage.getItem("rihaMenu32")));
         document.getElementById("localRihaMenu32").innerHTML = localStorageRihaMenu32;
 
+
         // リセットボタンを押すと保存データ削除
         $('.reset_btn').click(function () {
             localStorage.clear();
             window.location.reload();
         })
+
+        //進捗管理表をクリックした時に色を変更
+        $(function () {
+            $('td').click(function () {
+                $(this).each(function () {
+                    $(this).toggleClass('color');
+                });
+            });
+        });
 
     </script>
 
