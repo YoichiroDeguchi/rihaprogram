@@ -288,17 +288,13 @@ https: //pa-tu.work/category/6
     margin: 0 0 50px 0;
 }
 
-td,
-th {
+td {
     width: 50px;
     height: 50px;
     text-align: center;
     border-radius: 10px;
     border: solid 2px #2c2c2f;
-}
-
-th {
-    background: #cde4ff;
+    cursor: pointer;
 }
 
 .color {
